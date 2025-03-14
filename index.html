@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log("Service Worker Registered"))
+                .catch(err => console.log("Service Worker Registration Failed", err));
+        }
+    </script>
+    
     <div class="game-container">
         <h1>Math Game</h1>
         <div class="progress-bar">
@@ -22,12 +30,6 @@
     <script src="script.js"></script>
 
     <!-- Register Service Worker -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then(reg => console.log('Service Worker Registered!', reg))
-                .catch(err => console.log('Service Worker Registration Failed!', err));
-        }
-    </script>
+    
 </body>
 </html>
